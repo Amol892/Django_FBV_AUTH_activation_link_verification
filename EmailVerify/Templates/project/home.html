@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Home page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel='stylesheet' href="{% static 'CSS/custom.css' %}">
+{% endblock  %}
+
+
+
+{% block content %}
+    <div class='container'>
+        <div class='show-notification'>
+            {% include 'alerts.html' %}
+        </div>
+        <h1>Project Details</h1><hr>
+
+        
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>Project Id</th>
+                        <th>Project Name</th>
+                        <th>Project Description</th>
+                        <th>Project Manager</th>
+                        <th>Project Team size </th>
+                        <th>Programming lanagauges</th>
+                        <th>Project start date</th>
+                        <th>Project Dellivery date</th>
+                        <th>Total weeks</th>
+                        <th>Remaining weeks</th>
+                        <th>Project Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for obj in object %}
+                    <tr>
+                        <td>{{obj.id}}</td>
+                        <td>{{obj.project_name}}</td>
+                        <td>{{obj.project_description}}</td>
+                        <td>{{obj.project_lead}}</td>
+                        <td>{{obj.team_size}}</td>
+                        <td>{{obj.programming_langauge}}</td>
+                        <td>{{obj.project_start_date}}</td>
+                        <td>{{obj.project_delivery_date}}</td>
+                        <td>{{obj.weeks}}</td>
+                        <td>{{obj.remaining_weeks}}</td>
+                        <td>{{obj.project_status}}</td>
+                        
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        
+        
+    </div>
+
+{% endblock %}

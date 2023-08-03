@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>Login page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' href="{% static 'CSS/custom.css' %}">
+    {% endblock %}
+
+
+{% block content %}
+    <div class='container'>
+        <div class='show-notification'>
+        {% include 'alerts.html' %}
+        </div>
+        <h1>User Login form</h1><hr>
+        <form method='post'>
+            {% csrf_token %}
+
+            <label for='un'>Username</label>
+            <input type='text' id='un' name='un' class='form-control'><br><br>
+
+            <label for='pw'>Password</label>
+            <input type='text' id='pw' name='pw' class='form-control'><br><br>
+
+            <input type='submit' value='Login me' class='btn btn-success col-4'><br><br>
+        </form>
+
+    </div>
+
+{% endblock %}
